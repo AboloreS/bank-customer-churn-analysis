@@ -5,9 +5,6 @@ A business analysis case study: understanding why customers leave a bank, and wh
 **Tools:** SQL · Microsoft Power BI · Excel
 **Skills shown:** requirements gathering · user stories · data analysis · dashboard design · business recommendations
 
-![Dashboard overview](dashboard/dashboard_overview.png)
-<!-- [add: replace with a screenshot of your Power BI dashboard] -->
-
 ---
 
 ## 1. Business problem
@@ -22,62 +19,40 @@ A retail bank is losing customers. Each customer who leaves takes their balance 
 
 I approached this as a business analyst would on a real project:
 
-1. **Understood the need.** I identified the stakeholders and wrote down what each of them needs to know. See the [requirements document](docs/requirements.md).
+1. **Understood the need.** I identified the stakeholders and wrote down what each of them needs to know. See the [requirements document](requirements.md).
 2. **Wrote user stories** to keep the analysis focused on decisions people will actually make.
-3. **Explored the data in SQL** to answer each business question. See the [SQL queries](sql/02_analysis_queries.sql).
-4. **Built a Power BI dashboard** so stakeholders can explore the findings themselves. See the [dashboard plan](dashboard/dashboard_plan.md).
+3. **Explored the data in SQL** to answer each business question. See the [SQL queries](02_analysis_queries.sql).
+4. **Built a Power BI dashboard** so stakeholders can explore the findings themselves. See the [dashboard plan](dashboard_plan.md).
 5. **Turned the findings into recommendations** the bank can act on.
 
 ## 3. Data
 
-- **Source:** [add: dataset name and link, e.g. "Bank Customer Churn" on Kaggle]
-- **Size:** [add: number of rows] customers, [add: number] columns
-- **Key fields:** country, gender, age, tenure, balance, number of products, credit card holder, active member, estimated salary, and whether the customer left (`Exited`)
+- **Source:** Bank Customer Churn dataset (Kaggle)
+- **Key fields:** country, gender, age, tenure, balance, number of products, credit card holder, active member, estimated salary, and whether the customer left
 - This is a public dataset. It contains no real customer data from any bank I have worked for.
 
-## 4. Key findings
+## 4. Key findings and recommendations
 
-<!-- Fill these in after running the SQL queries. Use your real numbers. -->
+*Analysis in progress. Findings, the dashboard and recommendations will be added here.*
 
-| # | Finding | Evidence |
-|---|---------|----------|
-| 1 | [add: overall churn rate] | [add: query 1 result] |
-| 2 | [add: which country has the highest churn] | [add: query 2 result] |
-| 3 | [add: which age group leaves most] | [add: query 4 result] |
-| 4 | [add: how number of products relates to churn] | [add: query 5 result] |
-| 5 | [add: how inactive customers compare with active ones] | [add: query 6 result] |
+## 5. What I would do next
 
-## 5. Recommendations
+- Gather feedback from customers who left, to understand the reasons behind the numbers.
+- Track the churn rate monthly to see whether the recommended actions are working.
+- Test a simple retention campaign on one at-risk group and compare it with a group that did not receive it.
 
-<!-- Write 3–4 actions, each linked to a finding above. -->
+## Files in this project
 
-1. [add: recommendation linked to finding X]
-2. [add: recommendation linked to finding Y]
-3. [add: recommendation linked to finding Z]
-
-## 6. What I would do next
-
-- [add: e.g. gather feedback from customers who left, to understand the reasons behind the numbers]
-- [add: e.g. track churn monthly to see whether the recommendations work]
-
-## Repository structure
-
-```
-bank-customer-churn-analysis/
-├── README.md                   ← this file
-├── docs/
-│   └── requirements.md         ← stakeholders, requirements, user stories
-├── sql/
-│   ├── 01_create_table.sql     ← table setup
-│   └── 02_analysis_queries.sql ← queries answering each business question
-├── dashboard/
-│   ├── dashboard_plan.md       ← pages, visuals and measures
-│   └── [add: your .pbix file and screenshots]
-└── data/
-    └── [add: dataset, or a link to it]
-```
+| File | What it contains |
+|---|---|
+| `README.md` | This overview |
+| `requirements.md` | Stakeholders, business questions, requirements and user stories |
+| `01_create_table.sql` | Table setup and data checks |
+| `02_analysis_queries.sql` | SQL queries answering each business question |
+| `dashboard_plan.md` | Power BI pages, visuals and measures |
 
 ## About me
 
 I'm an MSc Financial Technology student at the University of Salford with a background in SME banking, looking for a business analyst placement from May 2027.
-[add: LinkedIn profile link]
+
+[Connect with me on LinkedIn](https://www.linkedin.com/in/aishat-abolore-sadiq-1b8872187/)
