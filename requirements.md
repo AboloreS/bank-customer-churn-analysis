@@ -4,7 +4,7 @@
 |---|---|
 | **Author** | Aishat Abolore Sadiq |
 | **Version** | 1.0 |
-| **Date** | [add: date] |
+| **Date** | November 2026 |
 | **Status** | Draft |
 
 ---
@@ -108,5 +108,3 @@ The bank is losing customers. Leaving customers reduce the bank's deposits and i
 | IsActiveMember | 1 = active member |
 | EstimatedSalary | Estimated annual salary |
 | Exited | 1 = left the bank, 0 = stayed |
-
-[confirm: check these column names against the dataset you download, and update if they differ]
