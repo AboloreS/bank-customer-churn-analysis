@@ -22,6 +22,9 @@ IF(bank_customers[IsActiveMember] = 1, "Active", "Inactive")
 
 Status =
 IF(bank_customers[Exited] = 1, "Left", "Stayed")
+
+Complaint Status =
+IF(bank_customers[Complain] = 1, "Complained", "No complaint")
 ```
 
 4. Add these measures (Modelling → New measure):
@@ -71,6 +74,15 @@ Format **Churn Rate** as a percentage (Measure tools → Format → Percentage).
 | Card | At-Risk Customers |
 | Table | CustomerId · Geography · Age · Tenure · Balance · NumOfProducts, filtered to Exited = 0, IsActiveMember = 0, Balance > 100,000, sorted by Balance (descending) |
 | Slicer | Geography |
+
+## Page 4: Customer feedback (US6)
+
+| Visual | Fields |
+|---|---|
+| Column chart | Churn Rate by Complaint Status |
+| Column chart | Churn Rate by Satisfaction Score (1 → 5) |
+| Bar chart | Churn Rate by Card Type |
+| Slicers | Geography · Activity Status |
 
 ## Finishing
 
