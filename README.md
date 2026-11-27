@@ -9,7 +9,7 @@ A business analysis case study: understanding why customers leave a bank, and wh
 
 ## 1. Business problem
 
-A retail bank is losing customers. Each customer who leaves takes their balance with them and costs the bank the price of winning a replacement. The bank's management wants to know:
+A retail bank is losing customers. It also records customer complaints and satisfaction scores, which may help explain why. Each customer who leaves takes their balance with them and costs the bank the price of winning a replacement. The bank's management wants to know:
 
 - How many customers are leaving?
 - Which customers are most likely to leave?
@@ -27,8 +27,9 @@ I approached this as a business analyst would on a real project:
 
 ## 3. Data
 
-- **Source:** Bank Customer Churn dataset (Kaggle)
-- **Key fields:** country, gender, age, tenure, balance, number of products, credit card holder, active member, estimated salary, and whether the customer left
+- **Source:** Bank Customer Churn dataset (Kaggle), file `Customer-Churn-Records.csv`
+- **Size:** 10,000 customers, 18 columns
+- **Key fields:** country, gender, age, tenure, balance, number of products, active member, complaints, satisfaction score, card type, loyalty points, and whether the customer left
 - This is a public dataset. It contains no real customer data from any bank I have worked for.
 
 ## 4. Key findings and recommendations
