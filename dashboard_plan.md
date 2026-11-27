@@ -1,6 +1,6 @@
 # Power BI Dashboard Plan
 
-This plan links each dashboard page to the user stories in [requirements.md](../docs/requirements.md).
+This plan links each dashboard page to the user stories in [requirements.md](requirements.md).
 
 ## Setup
 
@@ -76,5 +76,5 @@ Format **Churn Rate** as a percentage (Measure tools → Format → Percentage).
 
 - Give each page a clear title, e.g. "Who is leaving the bank?"
 - Use one main colour, plus one highlight colour for "Left".
-- Take a screenshot of each page and save it in this folder. Use the Overview screenshot as `dashboard_overview.png` in the README.
-- Save the file as `bank_churn_dashboard.pbix` in this folder.
+- Take a screenshot of each page and upload it to this repository.
+- Save the file as `bank_churn_dashboard.pbix` and upload it to this repository.
