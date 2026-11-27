@@ -204,3 +204,88 @@ SELECT
 FROM bank_customers
 GROUP BY Geography, IsActiveMember
 ORDER BY Geography, activity_status;
+
+
+-- =============================================================
+-- Customer feedback and loyalty
+-- These queries use the complaint, satisfaction, card and
+-- loyalty-points columns.
+-- =============================================================
+
+
+-- -------------------------------------------------------------
+-- Q13 (BQ12): Do customers who complain leave more often?
+-- -------------------------------------------------------------
+SELECT
+    CASE WHEN Complain = 1 THEN 'Complained' ELSE 'No complaint' END AS complaint_status,
+    COUNT(*)                                        AS customers,
+    SUM(Exited)                                     AS customers_left,
+    ROUND(100.0 * SUM(Exited) / COUNT(*), 2)        AS churn_rate_pct
+FROM bank_customers
+GROUP BY Complain
+ORDER BY churn_rate_pct DESC;
+
+
+-- -------------------------------------------------------------
+-- Q14 (BQ13): Does satisfaction score relate to churn?
+-- -------------------------------------------------------------
+SELECT
+    [Satisfaction Score]                            AS satisfaction_score,
+    COUNT(*)                                        AS customers,
+    SUM(Exited)                                     AS customers_left,
+    ROUND(100.0 * SUM(Exited) / COUNT(*), 2)        AS churn_rate_pct
+FROM bank_customers
+GROUP BY [Satisfaction Score]
+ORDER BY [Satisfaction Score];
+
+
+-- -------------------------------------------------------------
+-- Q15 (BQ14): Does card type relate to churn?
+-- -------------------------------------------------------------
+SELECT
+    [Card Type]                                     AS card_type,
+    COUNT(*)                                        AS customers,
+    SUM(Exited)                                     AS customers_left,
+    ROUND(100.0 * SUM(Exited) / COUNT(*), 2)        AS churn_rate_pct
+FROM bank_customers
+GROUP BY [Card Type]
+ORDER BY churn_rate_pct DESC;
+
+
+-- -------------------------------------------------------------
+-- Q16 (BQ15): Do loyalty points relate to churn?
+-- Points run from about 100 to 1,000.
+-- -------------------------------------------------------------
+SELECT
+    points_band,
+    COUNT(*)                                        AS customers,
+    SUM(Exited)                                     AS customers_left,
+    ROUND(100.0 * SUM(Exited) / COUNT(*), 2)        AS churn_rate_pct
+FROM (
+    SELECT
+        Exited,
+        CASE
+            WHEN [Point Earned] < 400 THEN '1. Under 400'
+            WHEN [Point Earned] < 600 THEN '2. 400-599'
+            WHEN [Point Earned] < 800 THEN '3. 600-799'
+            ELSE                           '4. 800+'
+        END AS points_band
+    FROM bank_customers
+) AS banded
+GROUP BY points_band
+ORDER BY points_band;
+
+
+-- -------------------------------------------------------------
+-- Q17 (extra): Complaints and activity combined
+-- Shows whether inactive customers who complain are the
+-- highest-risk group.
+-- -------------------------------------------------------------
+SELECT
+    CASE WHEN Complain = 1 THEN 'Complained' ELSE 'No complaint' END AS complaint_status,
+    CASE WHEN IsActiveMember = 1 THEN 'Active' ELSE 'Inactive' END   AS activity_status,
+    COUNT(*)                                        AS customers,
+    ROUND(100.0 * SUM(Exited) / COUNT(*), 2)        AS churn_rate_pct
+FROM bank_customers
+GROUP BY Complain, IsActiveMember
+ORDER BY churn_rate_pct DESC;
