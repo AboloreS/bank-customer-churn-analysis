@@ -22,7 +22,7 @@ I approached this as a business analyst would on a real project:
 1. **Understood the need.** I identified the stakeholders and wrote down what each of them needs to know. See the [requirements document](requirements.md).
 2. **Wrote user stories** to keep the analysis focused on decisions people will actually make.
 3. **Explored the data in SQL** to answer each business question. See the [SQL queries](02_analysis_queries.sql).
-4. **Designed a Power BI dashboard** so stakeholders can explore the findings themselves (in progress). See the [dashboard plan](dashboard_plan.md).
+4. **Built a Power BI dashboard** so stakeholders can explore the findings themselves. See the [dashboard](#4-power-bi-dashboard) below and the [dashboard plan](dashboard_plan.md).
 5. **Turned the findings into recommendations** the bank can act on.
 
 ## 3. Data
@@ -32,7 +32,27 @@ I approached this as a business analyst would on a real project:
 - **Key fields:** country, gender, age, tenure, balance, number of products, active member, complaints, satisfaction score, card type, loyalty points, and whether the customer left
 - This is a public dataset. It contains no real customer data from any bank I have worked for.
 
-## 4. Key findings
+## 4. Power BI dashboard
+
+Four pages, built from the same data with DAX measures (total customers, customers left, churn rate, balance lost, at-risk customers). The filters for country, gender and activity update every chart.
+
+**Overview:** headline figures, churn by country, and customers who left vs stayed
+
+![Overview page](1.%20Overview.png)
+
+**Who leaves:** churn rate by age group, activity, number of products and gender
+
+![Who leaves page](2.%20who%20leaves.png)
+
+**At-risk customers:** the 1,584 inactive customers with balances over 100,000, highest balance first
+
+![At-risk customers page](3.%20at%20risk%20customers.png)
+
+**Customer feedback:** churn rate by complaints, satisfaction score and card type
+
+![Customer feedback page](4.%20customer%20feedback.png)
+
+## 5. Key findings
 
 **1. One in five customers left, and they took a quarter of the money.**
 2,038 of 10,000 customers left (20.4%). They held 185.7 million of the bank's 764.9 million in balances (24.3%), so the bank is losing more value than customers.
@@ -49,7 +69,7 @@ I approached this as a business analyst would on a real project:
 Moving from one product to two goes with much lower churn, but customers with three or four products almost all leave. The 3- and 4-product groups are small, but the pattern is strong.
 
 **3. Churn rises sharply with age.**
-Under 30: 7.6% · 30–39: 10.9% · 40–49: 30.8% · **50–59: 56.0%** · 60+: 28.0%
+18–29: 7.6% · 30–39: 10.9% · 40–49: 30.8% · **50–59: 56.0%** · 60+: 28.0%
 
 More than half of customers in their 50s left.
 
@@ -74,7 +94,7 @@ Complaints match churn almost exactly: 2,034 of the 2,044 customers who complain
 
 It is also surprising that satisfaction scores show no link to churn. On a real project, I would ask the data owners how and when both fields are collected before relying on them.
 
-## 5. Recommendations
+## 6. Recommendations
 
 1. **Call the 1,584 high-value inactive customers first.** Give relationship managers this list, starting with Germany and customers aged 40–59, where churn is highest. Together they hold 210.6 million in balances.
 2. **Help single-product customers take up a second product.** Customers with two products leave at 7.6%, compared with 27.7% for those with one. Offer a second product that fits their needs.
@@ -83,7 +103,7 @@ It is also surprising that satisfaction scores show no link to churn. On a real 
 5. **Re-engage inactive customers and design for customers in their 40s and 50s.** Use reminders and offers to bring inactive customers back, and look at products for this age group, such as savings and retirement planning.
 6. **Improve complaint data.** Record the date and reason for every complaint, so complaints can flag risk before customers leave rather than after.
 
-## 6. What I would do next
+## 7. What I would do next
 
 - Gather feedback from customers who left, to understand the reasons behind the numbers.
 - Track the churn rate monthly to see whether the recommended actions are working.
@@ -98,6 +118,8 @@ It is also surprising that satisfaction scores show no link to churn. On a real 
 | `01_create_table.sql` | Table setup and data checks |
 | `02_analysis_queries.sql` | SQL queries answering each business question |
 | `dashboard_plan.md` | Power BI pages, visuals and measures |
+| `bank_churn_dashboard.pbix` | The Power BI dashboard (open in Power BI Desktop) |
+| `1. Overview.png` to `4. customer feedback.png` | Screenshots of the four dashboard pages |
 
 ## About me
 
